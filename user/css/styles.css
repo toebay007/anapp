@@ -1,0 +1,9 @@
+.input-group button{
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+.input-group button i{
+    margin-left: 10px;
+}
