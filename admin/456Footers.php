@@ -1,9 +1,5 @@
 
                 <footer class="footer">
-                    <div class="w-100 clearfix">
-                        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2018 ThemeKit v2.0. All Rights Reserved.</span>
-                        <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://lavalite.org/" class="text-dark" target="_blank">Lavalite</a></span>
-                    </div>
                 </footer>
                 
             </div>
@@ -39,6 +35,26 @@
             e.src='https://www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+
+
+            $(document).ready(function(){
+                $('#state').on('change',function(){
+                    var countryID = $(this).val();
+                        if(countryID){
+                            $.ajax({
+                                type: 'POST',
+                                url: 'ajaxData.php',
+                                data: 'id='+countryID,
+                                success: function(html){
+                                    $('#city').html(html);
+                                }
+                            });
+                        }else{
+                            $('#city').html('<option value=""> Select State First</option>');
+                        }
+                });
+
+                });
         </script>
     </body>
 </html>

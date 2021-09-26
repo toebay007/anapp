@@ -25,13 +25,54 @@
                                 </div>
                             </div>
                         </div>
-
+                        <?php
+                            if (isset($_GET['user']) && ($_GET['user'] == 'success')) {
+                                echo '<div class="alert alert-success alert-dismissible fade show text-center">';
+                                echo 'User created successfully';
+                                echo '</div>';
+                            }
+                        ?>
+                        <?php
+                            if (isset($_GET['user']) && ($_GET['user'] == 'exists')) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                echo 'User data already exists';
+                                echo '</div>';
+                            }
+                        ?>
+                        <?php
+                            if (isset($_GET['user']) && ($_GET['user'] == 'incomplete_fields')) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                echo 'Incomplete fields... check that all fields are filled correctly';
+                                echo '</div>';
+                            }
+                        ?>
+                        <?php
+                            if (isset($_GET['user']) && ($_GET['user'] == 'failed')) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                echo 'User data entry failed... please try again';
+                                echo '</div>';
+                            }
+                        ?>
+                        <?php
+                            if (isset($_GET['user']) && ($_GET['user'] == 'img_failed')) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                echo 'User image wrong... please use another image';
+                                echo '</div>';
+                            }
+                        ?>
+                        <?php
+                            if (isset($_GET['user']) && ($_GET['user'] == 'extension')) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                echo 'Invalid image extension';
+                                echo '</div>';
+                            }
+                        ?>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header"><h3>ANAPPCAN registration</h3></div>
                                     <div class="card-body">
-                                        <form action="#" method="POST" class="forms-sample" enctype="multipart/form-data">
+                                        <form action="../admin/process/forms.php" method="POST" class="forms-sample" enctype="multipart/form-data">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="fname">First name</label>
@@ -62,21 +103,35 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="resAdd">Residential Address</label>
-                                                    <input type="email" class="form-control" id="resAdd" name="resAdd" placeholder="Residential address">
+                                                    <input type="text" class="form-control" id="resAdd" name="resAdd" placeholder="Residential address">
                                                 </div>
                                             </div>
 
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="state">State of Origin</label>
-                                                    <select name="state" id="state" class="form-control">
-                                                        <option value="state">--State--</option>
+                                                    <?php 
+                                                        require "stateconfig.php";
+                                                        $query = "SELECT * FROM states ORDER BY name ASC";
+                                                        $result = $mysqli->query($query);
+                                                    ?>
+                                                    <select id="state" name="statesz" class="form-control" required> State of Residence
+                                                        <option  value="">--Select state--</option>
+                                                        <?php 
+                                                            if($result->num_rows > 0){
+                                                                while($row = $result->fetch_assoc()){
+                                                                    echo '<option value="' .$row['id']. '">' .$row['name']. '</option>';
+                                                                }
+                                                            }else{
+                                                                echo '<option value=""> state not available </option>';
+                                                            }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                <label for="lgas">Local Government Area</label>
-                                                    <select name="lgas" id="lgas" class="form-control">
-                                                        <option value="lgas">--LGA--</option>
+                                                <label for="city">Local Government Area</label>
+                                                    <select id="city" name="lgas" class="form-control" required> Local Government Area
+                                                        <option value="">--Select state first--</option>
                                                     </select>
                                                 </div>
                                             </div>

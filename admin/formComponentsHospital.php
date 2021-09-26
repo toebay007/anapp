@@ -29,9 +29,30 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="card">
+                                <?php
+                            if (isset($_GET['hospital']) && ($_GET['hospital'] == 'success')) {
+                                echo '<div class="alert alert-success alert-dismissible fade show text-center">';
+                                echo 'Hospital created successfully';
+                                echo '</div>';
+                            }
+                        ?>
+                        <?php
+                            if (isset($_GET['hospital']) && ($_GET['hospital'] == 'failed')) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                echo 'Kindly try again.';
+                                echo '</div>';
+                            }
+                        ?>
+                        <?php
+                            if (isset($_GET['hospital']) && ($_GET['hospital'] == 'incomplete_fields')) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                echo 'fill the form properly.';
+                                echo '</div>';
+                            }
+                        ?>
                                     <div class="card-header"><h3>ANAPPCAN Hospital registration</h3></div>
                                     <div class="card-body">
-                                        <form action="#" method="POST" class="forms-sample">
+                                        <form action="../admin/process/forms.php" method="POST" class="forms-sample">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="hName">Name of Hospital</label>
@@ -55,18 +76,34 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                        <select name="states" id="states" class="form-control">States
-                                                            <option value="states">--states--</option>
-                                                        </select>
+                                                    <label for="state">States</label>
+                                                    <?php 
+                                                        require "stateconfig.php";
+                                                        $query = "SELECT * FROM states ORDER BY name ASC";
+                                                        $result = $mysqli->query($query);
+                                                    ?>
+                                                    <select id="state" name="statesz" class="form-control" required> State of Residence
+                                                        <option  value="">--Select state--</option>
+                                                        <?php 
+                                                            if($result->num_rows > 0){
+                                                                while($row = $result->fetch_assoc()){
+                                                                    echo '<option value="' .$row['id']. '">' .$row['name']. '</option>';
+                                                                }
+                                                            }else{
+                                                                echo '<option value=""> state not available </option>';
+                                                            }
+                                                        ?>
+                                                    </select>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                        <select name="lgas" id="lgas" class="form-control">LGA
-                                                            <option value="lgas">--lgas--</option>
-                                                        </select>
+                                                    <label for="city">Local Government Area</label>
+                                                    <select id="city" name="lgas" class="form-control" required> Local Government Area
+                                                        <option value="">--Select state first--</option>
+                                                    </select>
                                                 </div>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                            <button type="submit" name="submit11" class="btn btn-primary mr-2">Submit</button>
                                           </form>
                                     </div>
                                 </div>
