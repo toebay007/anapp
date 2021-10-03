@@ -72,7 +72,7 @@
                                 <div class="card">
                                     <div class="card-header"><h3>ANAPPCAN registration</h3></div>
                                     <div class="card-body">
-                                        <form action="../admin/process/forms.php" method="POST" class="forms-sample" enctype="multipart/form-data">
+                                        <form action="forms.php" method="POST" class="forms-sample" enctype="multipart/form-data">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="fname">First name</label>

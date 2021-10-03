@@ -29,7 +29,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="card">
-                                <?php
+                        <?php
                             if (isset($_GET['hospital']) && ($_GET['hospital'] == 'success')) {
                                 echo '<div class="alert alert-success alert-dismissible fade show text-center">';
                                 echo 'Hospital created successfully';
@@ -52,7 +52,7 @@
                         ?>
                                     <div class="card-header"><h3>ANAPPCAN Hospital registration</h3></div>
                                     <div class="card-body">
-                                        <form action="../admin/process/forms.php" method="POST" class="forms-sample">
+                                        <form action="forms.php" method="POST" class="forms-sample">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="hName">Name of Hospital</label>

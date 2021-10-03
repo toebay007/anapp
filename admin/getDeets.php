@@ -1,0 +1,41 @@
+<?php
+
+    include('conndbs.php');
+
+    class staffsz extends connStaff{
+
+
+            function getDetails(){
+                $sql = "SELECT * FROM staffreg";
+                $result = $this->conns->query($sql);
+                $items = [];
+                if ($result->num_rows > 0){
+                    while ( $row = $result->fetch_assoc()){
+                        $items[] = $row;
+                    }
+                    return $items;
+                }
+            }
+
+
+            function statusChange($statuss,$users){
+                $sql = "UPDATE staffreg SET statusz = '$statuss' WHERE usernamesz = '$users'";
+                $result = $this->conns->query($sql);
+                //var_dump($result);
+                if($result == true){
+                    header("location:viewusers.php?action=updated");
+                }else{
+                    header("location:viewusers.php?action=failed");
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+    }

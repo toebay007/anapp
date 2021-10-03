@@ -130,7 +130,7 @@
                                                     <h4 class="text-center">CASE MANAGER</h4>
                                                     <div class="form-group mb-3">
                                                         <label for="names">Name</label>
-                                                        <input type="text" id="names" class="form-control" value="Omolomo Clinic" disabled>
+                                                        <input type="text" id="names" class="form-control" value="<?php echo $name; ?>" disabled>
                                                     </div>
                                                     <div class="form-group mb-3">
                                                         <label for="phoneNumber">Phone</label>

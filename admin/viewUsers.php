@@ -1,4 +1,14 @@
-<?php  include "123Header.php";  ?>
+<?php
+// error_reporting(0);
+include "123Header.php"; ?>
+<?php
+
+require("getDeets.php");
+
+$sreg = new staffsz; 
+$staffdeet = $sreg->getDetails();
+
+?>
                 <div class="main-content">
                     <div class="container-fluid">
                         <div class="page-header">
@@ -17,10 +27,10 @@
                                             <li class="breadcrumb-item">
                                                 <a href="../index.html"><i class="ik ik-home"></i></a>
                                             </li>
-                                            <li class="breadcrumb-item">
-                                                <a href="#">Tables</a>
+                                            <li class="breadcrumb-item active">
+                                                <a href="#">Users List</a>
                                             </li>
-                                            <li class="breadcrumb-item active" aria-current="page">Bootstrap Tables</li>
+                                            
                                         </ol>
                                     </nav>
                                 </div>
@@ -31,6 +41,20 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
+                                <?php
+                            if (isset($_GET['action']) && ($_GET['action'] == 'updated')) {
+                                echo '<div class="alert alert-success alert-dismissible fade show text-center">';
+                                echo 'User Status updated successfully';
+                                echo '</div>';
+                            }
+                        ?>
+                        <?php
+                            if (isset($_GET['action']) && ($_GET['action'] == 'failed')) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                echo 'Failed to upload User Status';
+                                echo '</div>';
+                            }
+                        ?>
                                     <div class="card-body p-0 table-border-style">
                                         <div class="table-responsive">
                                             <table class="table">
@@ -39,19 +63,38 @@
                                                         <th>Photos</th>
                                                         <th>Fullname</th>
                                                         <th>Address</th>
-                                                        <th>Phone Number</th>
-                                                        <th>Details</th>
+                                                        <th>Username</th>
+                                                        <th>Password</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                <?php  if(empty($staffdeet)){   ?>
+
+
+                                                <?php } else{ foreach($staffdeet as $staff){  ?>
+                                                
                                                     <tr>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td><img src="<?php echo $staff['pPhoto']; ?>" alt="<?php echo $staff['fname']; ?>" width="100px" height="80px"></td>
+                                                        <td><?php echo $staff['fname']; ?> <?php echo $staff['sname']; ?></td>
+                                                        <td><?php echo $staff['resAdd']; ?></td>
+                                                        <td><?php echo $staff['usernamesz']; ?></td>
+                                                        <td><?php if(empty($staff['newPwdz'])){ echo $staff['pwdsz']; } else{ echo "Password Changed by Staff"; }?></td>
+                                                        <form action="forms.php" method="post">
+                                                            <td>
+                                                                <select name="statuss" id="status" class="form-control">
+                                                                    <option value=""><?php echo $staff['statusz']; ?></option>
+                                                                    <option value="users">User</option>
+                                                                    <option value="admin">Admin</option>
+                                                                </select>
+                                                            </td>
+                                                            <td><input type="hidden" name="users" value="<?php echo $staff['usernamesz']; ?>"></td>
+                                                            <td><button class="btn" type="submit" name="submit13">SAVE</button></td>
+                                                        </form>
+                                                        
                                                     </tr>
-                                                   
+                                                    <?php } } ?>
                                                 </tbody>
                                             </table>
                                         </div>

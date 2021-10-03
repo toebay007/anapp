@@ -3,7 +3,7 @@
 
 if(isset($_POST["submit"])){
 
-    require("../classes/createUser.php");
+    require("createUser.php");
 
     $obj1 = new staffs;
 
@@ -30,7 +30,7 @@ if(isset($_POST["submit"])){
 } else if(isset($_POST["submit11"])){
 
 
-  require("../classes/createUser.php");
+  require("createUser.php");
 
   $obj2 = new staffs;
 
@@ -49,6 +49,42 @@ if(isset($_POST["submit"])){
     $lgas = test_input($_POST['lgas']);
 
     $obj2->createHospital($hName,$cmds,$telNo,$adds1,$statesz,$lgas);
+
+}   else if(isset($_POST["submit12"])){
+
+  require("createUser.php");
+
+  $obj3 = new staffs;
+
+  function test_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
+
+    $username = test_input($_POST['username']);
+    $password = test_input($_POST['password']);
+    //echo $password;
+    $obj3->stafflogin($username,$password);
+
+}   else if(isset($_POST["submit13"])){
+
+  require("getDeets.php");
+
+  $obj3 = new staffsz;
+
+  function test_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
+
+    $statuss = test_input($_POST['statuss']);
+    $users = test_input($_POST['users']);
+
+    $obj3->statusChange($statuss,$users);
 
 } 
 

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
@@ -41,9 +42,30 @@
                             </div>
                             <h3>Sign in to your ANPPCARE Account </h3>
                             <p>Happy to see you again!</p>
-                            <form action="#" method="POST">
+                            <?php
+                            if (isset($_GET['login']) && ($_GET['login'] == 'fail')) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                echo 'Login Failed. Kindly try again with the correct details';
+                                echo '</div>';
+                                }
+                            ?>
+                            <?php
+                            if (isset($_GET['status']) && ($_GET['status'] == 'error')) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                echo 'If you can see this, KINDLY CONTACT THE ICT DEPT.';
+                                echo '</div>';
+                                }
+                            ?>
+                            <?php
+                            if (isset($_GET['user']) && ($_GET['user'] == 'error')) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                echo 'User does not exist.';
+                                echo '</div>';
+                                }
+                            ?>
+                            <form action="admin/forms.php" method="POST">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="username" placeholder="Email" required="" >
+                                    <input type="text" class="form-control" name="username" placeholder="username" required="" >
                                     <i class="ik ik-user"></i>
                                 </div>
                                 <div class="form-group">
@@ -51,23 +73,22 @@
                                     <i class="ik ik-lock"></i>
                                 </div>
                                 <div class="row">
-                                    <div class="col text-left">
+                                    <!-- <div class="col text-left">
                                         <label class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="item_checkbox" name="item_checkbox" value="option1">
                                             <span class="custom-control-label">&nbsp;Remember Me</span>
                                         </label>
-                                    </div>
-                                    <div class="col text-right">
+                                    </div> -->
+                                    <!-- <div class="col text-right">
                                         <a href="forgot-password.html">Forgot Password ?</a>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="sign-btn text-center">
-                                    <input type="submit" class="btn btn-theme" id="item_checkbox" name="submit" value="LOGIN">
-                                    
+                                    <button type="submit" class="btn btn-theme" id="item_checkbox" name="submit12">LOGIN</button>
                                 </div>
                             </form>
                             <div class="register">
-                                <p>Don't have an account? <a href="register.html">Create an account</a></p>
+                                <p>Don't have an account? Contact the admin</p>
                             </div>
                         </div>
                     </div>

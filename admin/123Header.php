@@ -1,9 +1,26 @@
+<?php  
+error_reporting(0);
+session_start();
+$status = $_SESSION['status'];
+if (!isset( $_SESSION['Anappusers']) || $status === 'users') {
+    header("location:../index.php");
+}
+
+$id = $_SESSION['id'];
+$name = $_SESSION['fname']." ".$_SESSION['sname'];
+$email = $_SESSION['email'];
+$users = $_SESSION['Anappusers'];
+$pics = $_SESSION['pic'];
+$status = $_SESSION['status'];
+?>
+
+
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ThemeKit - Admin Template</title>
+        <title>ANAPPCARE</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,7 +97,7 @@
                                     <a class="dropdown-item" href="#"><i class="ik ik-settings dropdown-icon"></i> Settings</a>
                                     <a class="dropdown-item" href="#"><span class="float-right"><span class="badge badge-primary">6</span></span><i class="ik ik-mail dropdown-icon"></i> Inbox</a>
                                     <a class="dropdown-item" href="#"><i class="ik ik-navigation dropdown-icon"></i> Message</a>
-                                    <a class="dropdown-item" href="config/logout.php"><i class="ik ik-power dropdown-icon"></i> Logout</a>
+                                    <a class="dropdown-item" href="logout.php"><i class="ik ik-power dropdown-icon"></i> Logout</a>
                                 </div>
                             </div>
                             <!-- End of User Button -->
@@ -95,7 +112,7 @@
                     <div class="sidebar-header">
                         <a class="header-brand" href="index.php">
                             <div class="logo-img">
-                               <img src="src/img/brand-white.svg" class="header-brand-img" alt="lavalite"> 
+                               <!-- <img src="src/img/brand-white.svg" class="header-brand-img" alt="lavalite">  -->
                             </div>
                             <span class="text">Admin</span>
                         </a>
