@@ -20,7 +20,28 @@
                                 <div class="card">
                                     <div class="card-header"><h3>COMPLAIN DETAILS</h3></div>
                                     <div class="card-body">
-                                        <form class="forms-sample">
+                                        <?php
+                                        if (isset($_GET['form']) && ($_GET['form'] == 'incomplete_input')) {
+                                            echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                            echo 'Check that all fields are filled correctly';
+                                            echo '</div>';
+                                            }
+                                        ?>
+                                        <?php
+                                        if (isset($_GET['form']) && ($_GET['form'] == 'success')) {
+                                            echo '<div class="alert alert-success alert-dismissible fade show text-center">';
+                                            echo 'Complaint is registered succssfuly.';
+                                            echo '</div>';
+                                            }
+                                        ?>
+                                        <?php
+                                        if (isset($_GET['form']) && ($_GET['form'] == 'failed')) {
+                                            echo '<div class="alert alert-danger alert-dismissible fade show text-center">';
+                                            echo 'Kindly try again and contactthe ICT.';
+                                            echo '</div>';
+                                            }
+                                        ?>
+                                        <form action="forms.php" method="POST" class="forms-sample">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                 <label for="patName">Name of Complaint : </label>
@@ -34,11 +55,11 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                 <label for="addre">Address:</label>
-                                                <input type="text" class="form-control" name="addre" id="addre" placeholder="Address">
+                                                <input type="text" class="form-control" name="complAdress" id="addre" placeholder="Address">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                 <label for="occup">Occupation of the complaint:</label>
-                                                <input type="text" class="form-control" name="occup" id="occup" placeholder="Occupation of compliant">
+                                                <input type="text" class="form-control" name="complOccup" id="occup" placeholder="Occupation of compliant">
                                                 </div>
                                             </div>
                                             <div class="form-row">
@@ -61,7 +82,7 @@
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                     <label for="addR">Address:</label>
-                                                   <textarea name="addR" class="form-control" id="addR" cols="20" rows="1"></textarea>
+                                                   <textarea name="susAdress" class="form-control" id="addR" cols="20" rows="1"></textarea>
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                     <label for="occuPa">Occupation:</label>
@@ -75,7 +96,7 @@
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                     <label for="sex">SEX</label>
-                                                    <select class="form-control" name="sex" id="sex">
+                                                    <select class="form-control" name="susSex" id="sex">
                                                         <option value="--">--Sex--</option>
                                                         <option value="male">Male</option>
                                                         <option value="female">Female</option>
@@ -112,7 +133,7 @@
                                                 </div>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                            <button type="submit" name="submit15" class="btn btn-primary mr-2">Submit</button>
                                             <button class="btn btn-light">Cancel</button>
                                           </form>
                                     </div>

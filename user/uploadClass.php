@@ -39,7 +39,46 @@
 
 
 
+            function complaint($patName,$relati,$complAdress,$complOccup,$natCa,$datRe,$nameAcc,$susAdress,$occuPa,$nameAb,$susSex,$age,$locat,$issue,$actP,$caseM){
 
+                if(!$patName || !$relati || !$complAdress || !$complOccup || !$natCa || !$datRe || !$nameAcc || !$susAdress || !$occuPa || !$nameAb || !$susSex || !$age || !$locat || !$issue || !$actP || !$caseM){
+                    header("location:complain.php?form=incomplete_input");
+                } else{
+
+                    $sql = "INSERT INTO complaintF SET
+                    patName = '$patName',
+                    relati = '$relati',
+                    complAdress = '$complAdress',
+                    compOccup = '$complOccup',
+                    natCa = '$natCa',
+                    datRe = '$datRe',
+                    nameAcc = '$nameAcc',
+                    susAdress = '$susAdress',
+                    occuPa = '$occuPa',
+                    nameAb = '$nameAb', 
+                    susSex = '$susSex',
+                    age = $age,
+                    locat = '$locat',
+                    issue = '$issue',
+                    actP = '$actP',
+                    caseM = '$caseM'";
+        
+                $this->conn->query($sql);
+                $id =  $this->conn->insert_id;
+                
+                if($id > 0){
+                header("location:complain.php?form=success");
+                } else {
+                header("location:complain.php?form=failed");
+            }
+
+                }
+                
+       
+
+
+
+            }
 
 
 
