@@ -7,7 +7,7 @@
             //change password
             function changepwd($oldpwd,$newpwd,$cnewpwd,$users){
 
-                $sql= "SELECT * FROM staffreg WHERE usernamesz = '$users' AND pwdsz === '$oldpwd' LIMIT 1";
+                $sql= "SELECT * FROM staffreg WHERE usernamesz = '$users' AND pwdsz = '$oldpwd' LIMIT 1"; // check ===
 
                 $result = $this->conn->query($sql);
 
