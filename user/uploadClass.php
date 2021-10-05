@@ -21,17 +21,17 @@
                         $result1 = $this->conn->query($sql1);
 
                         if($result1 == true){
-                            header("location:change_password.php?update=successful");
+                            header("location:Change_password.php?update=successful");
                         } else{
-                            header("location:change_password.php?update=failed");
+                            header("location:Change_password.php?update=failed");
                         }
 
                     } else{
-                        header("location:change_password.php?password=failed_entry");
+                        header("location:Change_password.php?password=failed_entry");
                     }
 
                 }else{
-                    header("location:change_password.php?password=Old_wrong");
+                    header("location:Change_password.php?password=Old_wrong");
                 }
                 
             }
