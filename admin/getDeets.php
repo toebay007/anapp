@@ -23,9 +23,9 @@
                 $result = $this->conns->query($sql);
                 //var_dump($result);
                 if($result == true){
-                    header("location:viewusers.php?action=updated");
+                    header("location:viewUsers.php?action=updated");
                 }else{
-                    header("location:viewusers.php?action=failed");
+                    header("location:viewUsers.php?action=failed");
                 }
             }
 
