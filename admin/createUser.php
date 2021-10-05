@@ -134,6 +134,7 @@
                         // echo"NewBie"; 
                              $sql= "SELECT * FROM staffreg WHERE usernamesz = '$username' AND pwdsz = '$password' LIMIT 1";
 
+
                                 $result = $this->conn->query($sql);
 
                                     // var_dump($result);

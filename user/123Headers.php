@@ -144,7 +144,7 @@ $status = $_SESSION['status'];
                                     
                                 </div>
                                 <div class="nav-item">
-                                    <a href="change_password.php"><i class="ik ik-gitlab"></i><span>Change Password</span> </a>
+                                    <a href="Change_password.php"><i class="ik ik-gitlab"></i><span>Change Password</span> </a>
                                     
                                 </div>
                                 
