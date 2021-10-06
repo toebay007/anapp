@@ -57,4 +57,38 @@ if(isset($_POST["submit14"])){
     // echo $susSex;
 
    $obj2->complaint($patName,$relati,$complAdress,$complOccup,$natCa,$datRe,$nameAcc,$susAdress,$occuPa,$nameAb,$susSex,$age,$locat,$issue,$actP,$caseM);
+
+
+  } else if(isset($_POST["submit1AB"])){
+
+  
+  require("uploadClass.php");
+
+  $obj2 = new staff;
+
+  function test_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
+
+    $nameBen = test_input($_POST['nameBen']);
+    $uniId = test_input($_POST['uniId']);
+    $agez = test_input($_POST['agez']);
+    $suex = test_input($_POST['suex']);
+    $addrez = test_input($_POST['addrez']);
+    $phonNo = test_input($_POST['phonNo']);
+    $natAbuse = test_input($_POST['natAbuse']);
+    $actTaken = test_input($_POST['actTaken']);
+    $reffTo = test_input($_POST['reffTo']);
+    $folloUp = test_input($_POST['folloUp']);
+    $onGoing = test_input($_POST['onGoing']);
+    $caseClose = test_input($_POST['caseClose']);
+    $caseReop = test_input($_POST['caseReop']);
+    $othersSp = test_input($_POST['othersSp']);
+
+    // echo $caseReop;
+
+   $obj2->gbv($nameBen,$uniId,$agez,$suex,$addrez,$phonNo,$natAbuse,$actTaken,$reffTo,$folloUp,$onGoing,$caseClose,$caseReop,$othersSp);
 }

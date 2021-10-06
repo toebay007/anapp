@@ -92,6 +92,45 @@
             }
 
 
+            function gbv($nameBen,$uniId,$agez,$suex,$addrez,$phonNo,$natAbuse,$actTaken,$reffTo,$folloUp,$onGoing,$caseClose,$caseReop,$othersSp){
+
+                if($natAbuse == 'others'){
+                    $natAbuse = $othersSp;
+                } else{
+                    $natAbuse = $natAbuse;
+                }
+
+                if(!$nameBen || !$uniId || !$agez ||!$suex|| !$addrez || !$phonNo || !$natAbuse || !$actTaken || !$reffTo || !$folloUp || !$onGoing || !$caseClose || !$caseReop){
+                    header("location:gbv.php?form=incomplete");
+                } else{
+
+                    
+                    $sql = "INSERT INTO staffreg SET
+                    nameBen = '$nameBen',
+                    uniId = '$uniId',
+                    agez = $agez,
+                    suex = '$suex',
+                    phonNo = '$phonNo',
+                    natAbuse = '$natAbuse',
+                    actTaken = '$actTaken',
+                    reffTo = '$reffTo',
+                    folloUp = '$folloUp',
+                    onGoing = '$onGoing',
+                    caseClose = '$caseClose',
+                    usernamesz = '$caseReop'";
+        
+                $this->conn->query($sql);
+                $id =  $this->conn->insert_id;
+                
+                        if($id > 0){
+                        header("location:gbv.php?form=success");
+                        } else {
+                        header("location:gbv.php?form=failed");
+                    }
+
+                }
+            }
+
 
 
 
