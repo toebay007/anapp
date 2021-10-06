@@ -160,6 +160,11 @@ $status = $_SESSION['status'];
                                     <a href="formComponentsHospital.php"><i class="ik ik-edit"></i><span>Create Hospitals</span></a>
                                     
                                 </div>
+                                
+                                <div class="nav-item ">
+                                    <a href="Change_password.php"><i class="ik ik-edit"></i><span>Change Password</span></a>
+                                    
+                                </div>
 
                                 <div class="nav-lavel">View Users</div>
                                 
