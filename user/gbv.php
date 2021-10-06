@@ -7,8 +7,7 @@
                                     <div class="page-header-title">
                                         <i class="ik ik-edit bg-blue"></i>
                                         <div class="d-inline">
-                                            <h5>FILL GBV</h5>
-                                           
+                                            <h5>FILL Gender Basd Violence</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -33,42 +32,47 @@
                                     <div class="card-body">
                                         <form class="forms-sample">
                                             <div class="form-group">
-                                                <label for="exampleInputUsername1">NAME OF BENEFICIARY : </label>
-                                                <input type="text" class="form-control" id="firstname" placeholder="Francis">
+                                                <label for="nameBen">NAME OF BENEFICIARY : </label>
+                                                <input type="text" class="form-control" name="nameBen" id="nameBen" placeholder="Francis">
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">UNIQUE ID :</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                                                <label for="uniId">UNIQUE ID :</label>
+                                                <input type="text" class="form-control" name="uniId" id="uniId" placeholder="Unique ID">
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">AGE :</label>
-                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                <label for="agez">AGE :</label>
+                                                <input type="text" class="form-control" name="agez" id="agez" placeholder="Age">
+                                            </div>
+                                            <div class="form-group">  
+                                                <label for="suex">SEX</label>
+                                                    <select class="form-control" name="suex" id="suex">
+                                                        <option value="">--Sex--</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                    </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">SEX :</label>
-                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                <label for="addrez">ADDRESS :</label>
+                                                <input type="text" class="form-control" name="addrez" id="addrez" placeholder="Address">
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputConfirmPassword1">ADDRESS :</label>
-                                                <input type="text" class="form-control" id="exampleInputConfirmPassword1" placeholder="">
+                                                <label for="phonNo">PHONE NUMBER :</label>
+                                                <input type="text" class="form-control" name="phonNo" id="phonNo" placeholder="Phone Number">
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputConfirmPassword1">PHONE NUMBER :</label>
-                                                <input type="text" class="form-control" id="exampleInputConfirmPassword1" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">NATURE OF ABUSE:</label>
-                                                        <select class="form-control" id="exampleSelectGender">
-                                                            <option>PSYCHOLOGICAL</option>
-                                                            <option>PHYSICAL</option>
-                                                            <option>SEXUAL</option>
-                                                            <option>NEGLECT</option>
-                                                            <option>OTHERS SPECIFY</option>
+                                                <label for="natAbuse">NATURE OF ABUSE:</label>
+                                                        <select class="form-control" name="natAbuse" id="natAbuse">
+                                                            <option value="">-- Nature of Abuse --</option>
+                                                            <option value="psychological">PSYCHOLOGICAL</option>
+                                                            <option value="physical">PHYSICAL</option>
+                                                            <option value="sexual">SEXUAL</option>
+                                                            <option value="neglect">NEGLECT</option>
+                                                            <option value="">OTHERS SPECIFY</option>
                                                         </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">ACTION TAKEN :</label>
-                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                <label for="actTaken">ACTION TAKEN :</label>
+                                                <textarea name="actTaken" id="actTaken" cols="5" rows="10" class="form-control"></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">FOLLOW UP :</label>

@@ -1,7 +1,12 @@
 <?php  
-error_reporting(0);
+// error_reporting(0);
 session_start();
 $status = $_SESSION['status'];
+
+require("getDeets.php");
+
+$sreg = new staffsz; 
+
 if (!isset( $_SESSION['Anappusers']) || $status === 'users') {
     header("location:../index.php");
 }
@@ -12,6 +17,9 @@ $email = $_SESSION['email'];
 $users = $_SESSION['Anappusers'];
 $pics = $_SESSION['pic'];
 $status = $_SESSION['status'];
+
+$sreg->getDeeets($id);
+$staffdeat = $sreg->getDeeets($id);
 ?>
 
 
@@ -67,11 +75,11 @@ $status = $_SESSION['status'];
                         </div>
                         <div class="top-menu d-flex align-items-center">
                             <!-- Notification Dropdown -->
-                            <div class="dropdown">
+                            <!-- <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="notiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ik ik-bell"></i><span class="badge bg-danger">3</span></a>
                                 <div class="dropdown-menu dropdown-menu-right notification-dropdown" aria-labelledby="notiDropdown">
                                     <h4 class="header">Notifications</h4>
-                                    <div class="notifications-wrap">
+                                    <div class="notifications-wrap"> -->
                                         <!-- <a href="#" class="media">
                                             <span class="d-flex">
                                                 <i class="ik ik-check"></i> 
@@ -81,22 +89,21 @@ $status = $_SESSION['status'];
                                                 <span class="media-content">Your have been Invited ...</span>
                                             </span>
                                         </a> -->
-                                    </div>
+                                    <!-- </div>
                                     <div class="footer"><a href="javascript:void(0);">See all activity</a></div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- End of Notification -->
                             <!-- Mesasge Button Notification -->
-                            <button type="button" class="nav-link ml-10 right-sidebar-toggle"><i class="ik ik-message-square"></i><span class="badge bg-success">3</span></button>
+                            <!-- <button type="button" class="nav-link ml-10 right-sidebar-toggle"><i class="ik ik-message-square"></i><span class="badge bg-success">3</span></button> -->
                             <!-- End of Message Button -->
                             <!-- User Details Button -->
                             <div class="dropdown">
-                                <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="img/user.jpg" alt=""></a>
+                                <?php foreach($staffdeat as $steff){ ?>
+                                <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="<?php echo $steff['pPhoto']; ?>" alt="<?php echo $steff['fullnames']; ?>"></a>
+                                <?php } ?>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="profile.php"><i class="ik ik-user dropdown-icon"></i> Profile</a>
-                                    <a class="dropdown-item" href="#"><i class="ik ik-settings dropdown-icon"></i> Settings</a>
-                                    <a class="dropdown-item" href="#"><span class="float-right"><span class="badge badge-primary">6</span></span><i class="ik ik-mail dropdown-icon"></i> Inbox</a>
-                                    <a class="dropdown-item" href="#"><i class="ik ik-navigation dropdown-icon"></i> Message</a>
                                     <a class="dropdown-item" href="logout.php"><i class="ik ik-power dropdown-icon"></i> Logout</a>
                                 </div>
                             </div>

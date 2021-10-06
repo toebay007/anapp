@@ -3,9 +3,6 @@
 include "123Header.php"; ?>
 <?php
 
-require("getDeets.php");
-
-$sreg = new staffsz; 
 $staffdeet = $sreg->getDetails();
 
 ?>

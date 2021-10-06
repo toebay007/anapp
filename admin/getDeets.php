@@ -29,7 +29,18 @@
                 }
             }
 
-
+            function getDeeets($id){
+                
+                $sql = "SELECT concat(fname,' ',sname)as fullnames, pPhoto, usernamesz, emailz FROM staffreg where id = $id";
+                $result = $this->conns->query($sql);
+                $items = [];
+                if ($result->num_rows > 0){
+                    while ( $row = $result->fetch_assoc()){
+                        $items[] = $row;
+                    }
+                    return $items;
+                }
+            }
 
 
 

@@ -1,7 +1,12 @@
 <?php  
-error_reporting(0);
+// error_reporting(0);
 session_start();
 $status = $_SESSION['status'];
+
+require("uploadClass.php");
+
+$sreg = new staff; 
+
 if (!isset( $_SESSION['Anappusers']) || $status === 'admin') {
     header("location:../index.php");
 }
@@ -12,6 +17,10 @@ $email = $_SESSION['email'];
 $users = $_SESSION['Anappusers'];
 $pics = $_SESSION['pic'];
 $status = $_SESSION['status'];
+
+$sreg->getDetails($id);
+$staffdeet = $sreg->getDetails($id)
+
 ?>
 
 <!doctype html>
@@ -65,11 +74,11 @@ $status = $_SESSION['status'];
                             <button type="button" id="navbar-fullscreen" class="nav-link"><i class="ik ik-maximize"></i></button>
                         </div>
                         <div class="top-menu d-flex align-items-center">
-                            <div class="dropdown">
+                            <!-- <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="notiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ik ik-bell"></i><span class="badge bg-danger">3</span></a>
                                 <div class="dropdown-menu dropdown-menu-right notification-dropdown" aria-labelledby="notiDropdown">
                                     <h4 class="header">Notifications</h4>
-                                    <div class="notifications-wrap">
+                                    <div class="notifications-wrap"> -->
                                         <!-- <a href="#" class="media">
                                             <span class="d-flex">
                                                 <i class="ik ik-check"></i> 
@@ -79,20 +88,19 @@ $status = $_SESSION['status'];
                                                 <span class="media-content">Your have been Invited ...</span>
                                             </span>
                                         </a> -->
-                                        </div>
+                                        <!-- </div>
                                     <div class="footer"><a href="javascript:void(0);">See all activity</a></div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- message buuton -->
                             <!-- <button type="button" class="nav-link ml-10 right-sidebar-toggle"><i class="ik ik-message-square"></i><span class="badge bg-success">3</span></button> -->
                             <!-- profile buuton  -->                            
                             <div class="dropdown">
-                                <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="img/user.jpg" alt=""></a>
+                            <?php foreach($staffdeet as $staff){ ?>
+                                <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="../admin/<?php echo $staff['pPhoto']; ?>" alt=""></a>
+                               <?php } ?>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="profile.php"><i class="ik ik-user dropdown-icon"></i> Profile</a>
-                                    <a class="dropdown-item" href="#"><i class="ik ik-settings dropdown-icon"></i> Settings</a>
-                                    <a class="dropdown-item" href="#"><span class="float-right"><span class="badge badge-primary">6</span></span><i class="ik ik-mail dropdown-icon"></i> Inbox</a>
-                                    <a class="dropdown-item" href="#"><i class="ik ik-navigation dropdown-icon"></i> Message</a>
                                     <a class="dropdown-item" href="logout.php"><i class="ik ik-power dropdown-icon"></i> Logout</a>
                                 </div>
                             </div>
@@ -120,35 +128,49 @@ $status = $_SESSION['status'];
                             <nav id="main-menu-navigation" class="navigation-main">
                                 <div class="nav-lavel">Navigation</div>
                                 <div class="nav-item active">
-                                    <a href="index.php"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
+                                    <a href="index.php">
+                                        <i class="ik ik-bar-chart-2"></i>
+                                        <span>Dashboard</span>
+                                    </a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="#"><i class="ik ik-menu"></i><span>Message</span> <span class="badge badge-success">New</span></a>
+                                    <a href="#">
+                                        <i class="ik ik-menu"></i>
+                                        <span>Message</span> 
+                                        <!-- <span class="badge badge-success">New</span> -->
+                                    </a>
+                                </div>
+                                <div class="nav-item">
+                                    <a href="gbv.php">
+                                        <i class="ik ik-box"></i>
+                                        <span>GBV</span>
+                                    </a>
                                 </div>
                                 <div class="nav-item ">
-  
-                                <a href="report.php"><i class="ik ik-layers"></i><span>Patients List</span> <span class="badge badge-danger">150+</span></a>
-                                    
-                                </div>
-                                
-                                <div class="nav-item">
-                                    <a href="complain.php"><i class="ik ik-box"></i><span>Create Complain</span></a>
-                                    
+                                    <a href="report.php">
+                                        <i class="ik ik-layers"></i>
+                                        <span>Patients List</span> 
+                                        <!-- <span class="badge badge-danger">150+</span> -->
+                                    </a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="care_and_support.php"><i class="ik ik-box"></i><span>Care and Support</span></a>
-                                    
+                                    <a href="complain.php">
+                                        <i class="ik ik-box"></i>
+                                        <span>Create Complain</span>
+                                    </a>
+                                 </div>
+                                <div class="nav-item">
+                                    <a href="care_and_support.php">
+                                        <i class="ik ik-box"></i>
+                                        <span>Care and Support</span>
+                                    </a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="gbv.php"><i class="ik ik-box"></i><span>GBV</span></a>
-                                    
+                                    <a href="Change_password.php">
+                                        <i class="ik ik-gitlab"></i>
+                                        <span>Change Password</span>
+                                     </a>
                                 </div>
-                                <div class="nav-item">
-                                    <a href="Change_password.php"><i class="ik ik-gitlab"></i><span>Change Password</span> </a>
-                                    
-                                </div>
-                                
-                                
                             </nav>
                         </div>
                     </div>
