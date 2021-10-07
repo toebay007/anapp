@@ -105,9 +105,9 @@
                 } else{
 
                     
-                    $sql = "INSERT INTO staffreg SET
+                    $sql = "INSERT INTO gbv SET
                     nameBen = '$nameBen',
-                    uniId = '$uniId',
+                    uniId = $uniId,
                     agez = $agez,
                     suex = '$suex',
                     phonNo = '$phonNo',
@@ -117,8 +117,8 @@
                     folloUp = '$folloUp',
                     onGoing = '$onGoing',
                     caseClose = '$caseClose',
-                    usernamesz = '$caseReop'";
-        
+                    caseReop = '$caseReop'";
+     
                 $this->conn->query($sql);
                 $id =  $this->conn->insert_id;
                 
