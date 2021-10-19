@@ -134,6 +134,24 @@
 
 
 
+ 
+            function getNatureofAbuse(){
+                
+                $sql = "SELECT COUNT(natAbuse) AS numbers, natAbuse FROM gbv group by natAbuse";
+                $result = $this->conn->query($sql);
+                $items = [];
+                if($result->num_rows > 0){
+                    while($row = $result->fetch_assoc()){
+                        $items[] = $row;
+                    }
+                    return $items;
+                }
+            }
+
+
+
+
+
 
 
 

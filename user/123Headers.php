@@ -146,6 +146,12 @@ $staffdeet = $sreg->getDetails($id)
                                         <span>GBV</span>
                                     </a>
                                 </div>
+                                <div class="nav-item">
+                                    <a href="complain.php">
+                                        <i class="ik ik-box"></i>
+                                        <span>Create Complain</span>
+                                    </a>
+                                 </div>
                                 <div class="nav-item ">
                                     <a href="report.php">
                                         <i class="ik ik-layers"></i>
@@ -153,12 +159,6 @@ $staffdeet = $sreg->getDetails($id)
                                         <!-- <span class="badge badge-danger">150+</span> -->
                                     </a>
                                 </div>
-                                <div class="nav-item">
-                                    <a href="complain.php">
-                                        <i class="ik ik-box"></i>
-                                        <span>Create Complain</span>
-                                    </a>
-                                 </div>
                                 <div class="nav-item">
                                     <a href="care_and_support.php">
                                         <i class="ik ik-box"></i>
