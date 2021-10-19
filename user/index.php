@@ -7,7 +7,16 @@
                         <div class="row clearfix">
                             <!-- display of Nature of Abuse -->
                             <?php if(empty($natAb)){ ?>
-
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="widget">
+                                    <div class="widget-body">
+                                        <small class="text-small mt-10 d-block">No Gender Based Violence registered yet</small>
+                                    </div>
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
                                 <?php } else { foreach($natAb as $nats) {  ?>
 
                             <div class="col-lg-3 col-md-6 col-sm-12">
