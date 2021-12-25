@@ -133,13 +133,13 @@ $staffdeet = $sreg->getDetails($id)
                                         <span>Dashboard</span>
                                     </a>
                                 </div>
-                                <div class="nav-item">
+                        <!-- <div class="nav-item">
                                     <a href="#">
                                         <i class="ik ik-menu"></i>
                                         <span>Message</span> 
-                                        <!-- <span class="badge badge-success">New</span> -->
+                                        <span class="badge badge-success">New</span> 
                                     </a>
-                                </div>
+                                </div> -->
                                 <div class="nav-item">
                                     <a href="gbv.php">
                                         <i class="ik ik-box"></i>

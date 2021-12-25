@@ -41,7 +41,7 @@
                                                     <th class="nosort">&nbsp;</th>
                                                 </tr>
                                             </thead>
-                                            <!-- <tbody>
+                                            <tbody>
                                                 <tr>
                                                     <td>001</td>
                                                     <td><img src="../img/users/1.jpg" class="table-user-thumb" alt=""></td>
@@ -55,7 +55,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            </tbody> -->
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
